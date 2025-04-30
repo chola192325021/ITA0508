@@ -1,13 +1,15 @@
-from PIL import Image
+import cv2
 
 # Load the image
-image = Image.open("your_image.jpg")
+image = cv2.imread("your_image.jpg")
 
 # Convert to grayscale
-gray_image = image.convert("L")
+gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
 # Save the grayscale image
-gray_image.save("gray_image.jpg")
+cv2.imwrite("gray_image.jpg", gray_image)
 
-# Optional: Show the image
-gray_image.show()
+# Optional: Display the image
+cv2.imshow("Grayscale Image", gray_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
